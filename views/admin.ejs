@@ -1,0 +1,18 @@
+<% include partials/header %>
+<div class="ui container blog  main text container big  segment">
+<h1 class="center">Controles for the C.R.U.D</h1>
+</div>
+<div class="ui container blog  main text container inverted segment">
+<% cruds.forEach(function(crud){%>
+       <div class="header test">
+               <h2><%= crud.title%></h2>
+           </div>
+            <p class="date">Created by: <%=crud.author%></p>
+            <p class="date"><%=crud.created.toDateString()%></p>
+           <p><%-crud.body.substring(0, 250)%>...</p>
+           <a class="ui small button inverted blue" href="/crud/<%=crud._id%>/edit">Edit</a>
+           <a class="ui small button inverted red" href="/crud/<%=crud._id%>/delete">Delete</a>
+           <hr>
+<% }); %>
+</div>
+<% include partials/footer %>
