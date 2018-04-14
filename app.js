@@ -47,7 +47,7 @@ app.get("/crud/new", function(req, res){
     res.render("new");
 });
 
-app.get("/crud/sam/controles", function(req, res){
+app.get("/crud/controles", function(req, res){
        Crud.find({}, function(err, cruds){
         if (err){
             res.redirect("error");
@@ -68,6 +68,15 @@ app.get("/crud/sam/controles", function(req, res){
     })
  });
 
+ app.delete("/crud/:id", function(req, res){
+ Crud.findByIdAndRemove(req.params.id, function(err){
+     if(err){
+         res.render("error")
+     }else{
+         res.redirect("/crud")
+     }
+    });
+  })
 
 
 //#####################  Post Table  #####################
@@ -91,7 +100,16 @@ app.get("/crud/:id/edit", function(req, res){
         }
     });
 })
+app.put("/crud/:id", function(req, res){
+    Crud.findByIdAndUpdate(req.params.id, req.body.crud, function(err, updatedBlog){
+        if (err){
+            res.render("error");
+        }else{
+            res.redirect("/crud");
+        }
+    })
 
+});
 
 
 //#####################  dont edit below ##################

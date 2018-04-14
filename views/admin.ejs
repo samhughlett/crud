@@ -11,7 +11,9 @@
             <p class="date"><%=crud.created.toDateString()%></p>
            <p><%-crud.body.substring(0, 250)%>...</p>
            <a class="ui small button inverted blue" href="/crud/<%=crud._id%>/edit">Edit</a>
-           <a class="ui small button inverted red" href="/crud/<%=crud._id%>/delete">Delete</a>
+            <form id="delete" action="/crud/<%=crud._id%>?_method=DELETE" method="POST">
+        <button class="ui small inverted button red">DELETE</button>
+    </form>
            <hr>
 <% }); %>
 </div>

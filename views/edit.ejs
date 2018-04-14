@@ -1,9 +1,8 @@
 <% include partials/header %>
-    <h1>New Crud</h1>
     
     <div class="ui main text container big inverted form segment">
-    <div class="ui huge header">ADD A CRUD</div>
-        <form class="ui big form"action="/crud" method="post">
+    <div class="ui huge header">Edit A CRUD</div>
+        <form class="ui big form"action="/crud/<%=cruds._id%>?_method=PUT" method="POST">
             <div class="field">
                 <label>Title of crud</label>
                 <input type="text" name="crud[title]" pattern=".{3,}" required value="<%=cruds.title%>" ></input>
